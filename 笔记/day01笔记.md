@@ -197,3 +197,29 @@ Any
 
    一般用于辅助类型的推导. 当代码非正常结束, 则值就是nothing
 
+### 5.4.3 值型转换
+
+1. 自动类型转换(类型的提升)
+
+    从范围小的->范围大的  才会自动转换
+
+   `Byte -> Short->Int->Long->Float->Double`
+
+   `Char -> Int->....`
+
+2. 强制类型转换
+
+   ```
+   .toInt .toDouble...
+   ```
+
+3. 和String之间的转换
+   - 值-> string     .toString
+   - String->值     .toInt
+
+
+
+
+
+
+
