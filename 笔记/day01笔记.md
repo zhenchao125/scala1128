@@ -68,9 +68,9 @@ var a = 30
 ## 4. 标识符的命名规范
 
 1. 按照java的规范(数字字母)
-   
+  
 - 下划线的使用要注意, 在scala中下划线有很多特殊的含义
-   
+  
 2. 可以使用所谓的的运算符作为标识符
    - `+-*/  `   ...
    - 至少两个. 而且不能和字母混用
@@ -141,5 +141,59 @@ val line3: String = StdIn.readLine("请输入你的银行卡密码: ")
 println(line3)
 ```
 
+## 5.4 数据类型
 
+### 5.4.1 . java的数据类型
+
+- 基本数据类型
+
+  ```scala
+  八大基本数据类型:
+  byte short int long char(0-65535)
+  float double
+  boolean
+  ```
+
+- 引用数据类型(对象类型)
+
+  所有的类型都是引用类型.   (String)
+
+  基本类型的包装类
+
+### 5.4.2 scala的数据类型
+
+```scala
+Any
+	AnyVal	值类型
+		对应着java的基本类型
+		
+	AnyRef	引用类型
+
+```
+
+1. Unit
+
+   java中  void (方法不需要返回值的时候, 使用void) 关键字
+
+   Unit 表示类型, 既然是类型, 就应该有值 (). 用来替换java中的那个void
+
+   `Int -> 1, 2 ...`
+
+   `Unit -> ()`
+
+2. Null
+
+   `java:  User a = null`
+
+   `scala: Null 类型, 它有一个值 null`
+
+   所有引用类型的类型.
+
+3. Nothing
+
+   是scala中, 最底层的类型.是任何类型的子类型. 
+
+   而且, 他没有任何的对象. 
+
+   一般用于辅助类型的推导. 当代码非正常结束, 则值就是nothing
 

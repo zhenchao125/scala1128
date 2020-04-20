@@ -17,10 +17,9 @@ object Input {
         val line2: String = scanner.nextLine()
         println(line2)
         // 3. scala
-//        println("请输入你的银行卡密码: ")
+        //        println("请输入你的银行卡密码: ")
         val line3: String = StdIn.readLine("请输入你的银行卡密码: ")
         println(line3)
-        
         
         
     }
