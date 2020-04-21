@@ -138,5 +138,20 @@ for本质是遍历"集合". 如果要用for, 得先构建一个集合
 
 可以完全替换java中的`for`
 
-## 新的花样
+### 新的花样
 
+1. 退出循环(本质是抛异常和捕捉异常)
+
+   ```scala
+   import scala.util.control.Breaks._
+   breakable {  // 也是个方法, 内部其实try了抛出的异常
+       for (i <- 2 until n) {
+           if (n % i == 0) {
+               isPrime = false
+               break // 抛出异常. 其实是一个方法, 内部在抛异常
+           }
+       }
+   }
+   ```
+
+2. 
