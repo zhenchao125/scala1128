@@ -7,7 +7,7 @@ package com.atguigu.scala1128.day02
 object IfDemo3 {
     def main(args: Array[String]): Unit = {
         // 任何的语法结构都有值!
-        var a = 10
+        var a: Int = 10
         var b = 20
         var c: Unit = ()
         
