@@ -21,6 +21,6 @@ object Input {
         val line3: String = StdIn.readLine("请输入你的银行卡密码: ")
         println(line3)
         
-        
+        // alt+回车
     }
 }
