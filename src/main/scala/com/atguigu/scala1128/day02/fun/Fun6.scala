@@ -14,6 +14,9 @@ object Fun6 {
         val arr: Array[Int] = Array(1, 2, 34)
         //        println(foo(arr(0), arr(1), arr(2)))
         println(foo(arr: _*))
+        
+        foo1(10)
+        foo1(100)
     }
     
     // scala: 也支持可变参数
@@ -28,5 +31,9 @@ object Fun6 {
         ss.sum
     }
     
+    
+    def foo1(first: Int, s: Int*) = {
+    
+    }
     
 }

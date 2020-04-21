@@ -21,9 +21,9 @@ object Fun5 {
         
         add()
     }
+    def add(a: Int = 200, b: Int = 100) = a + b
     
     def add1(a: Int = 100, b: Int) = a + b
     
-    def add(a: Int = 200, b: Int = 100) = a + b
     
 }
