@@ -20,4 +20,12 @@ public class Test1 {
         System.out.println(a = b);  // true 20
 
     }
+
+    public void foo(int a){
+        a = 100;
+    }
+
+    public void foo1(final int a){
+        
+    }
 }
