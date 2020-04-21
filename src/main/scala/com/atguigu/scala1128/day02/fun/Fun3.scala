@@ -7,7 +7,7 @@ package com.atguigu.scala1128.day02.fun
 object Fun3 {
     def main(args: Array[String]): Unit = {
         // 使用函数计算1-1000内所有质数的和
-        val sum = sumPrimes(1, 2000)
+        val sum = sumPrimes(2, 3)
         println(sum)
     }
     

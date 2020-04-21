@@ -19,6 +19,11 @@ public class Test1 {
         // 在java中, 赋值语句的值, 是赋值号, 左边的变量的值
         System.out.println(a = b);  // true 20
 
+        foo2(1);
+        foo2(1, 2);
+        foo2(1, 2, 4);
+        foo2(new int[]{1,2,3});
+
     }
 
     public void foo(int a){
@@ -26,6 +31,11 @@ public class Test1 {
     }
 
     public void foo1(final int a){
-        
+
     }
+
+    public static void foo2(int ... ss){
+        // ss 当做一个数组
+    }
+
 }
