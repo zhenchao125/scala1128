@@ -7,19 +7,18 @@ package com.atguigu.scala1128.day03.high
 object Currying {
     
     def main(args: Array[String]): Unit = {
-    
         val r: Int = add(100)(200)
         println(r)
-        
     }
+    
     // 函数的柯里化!!!
-    def add(a:Int)(b:Int) = a + b
+    def add(a: Int)(b: Int) = a + b
     
     /*def add(a: Int) = {
         (b: Int) => a + b
     }
     */
-//    def add(a:Int, b:Int) = a + b
+    //    def add(a:Int, b:Int) = a + b
     
 }
 
