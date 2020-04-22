@@ -22,7 +22,7 @@ object High3 {
         println(r1)
         
         // 如果参数只使用一次, 则可以使用 _ 来替换每个参数
-        val r2 = cacl(100, 200, _ * _)
+        val r2 = cacl(100, 200, _ * _)  // (a,b) => a * b ====   _* _
         println(r2)
         
     }
