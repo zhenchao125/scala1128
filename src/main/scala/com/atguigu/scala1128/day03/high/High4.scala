@@ -17,10 +17,10 @@ object High4 {
         
         
         val arr = Array(3, 5, 70, 6, 10, 20)
-//        val arr1 = filter(arr, x => x > 20)
-//        val arr1 = filter(arr, x => x % 2 == 0)
-//        val arr1 = filter(arr, _ % 2 == 0)
-        val arr1 = filter(arr, x => x %3 == 0)
+        //        val arr1 = filter(arr, x => x > 20)
+        //        val arr1 = filter(arr, x => x % 2 == 0)
+        //        val arr1 = filter(arr, _ % 2 == 0)
+        val arr1 = filter(arr, x => x % 3 == 0)
         foreach(arr1, println)
         
     }
