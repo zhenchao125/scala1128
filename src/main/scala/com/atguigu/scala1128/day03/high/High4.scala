@@ -6,14 +6,34 @@ package com.atguigu.scala1128.day03.high
  */
 object High4 {
     def main(args: Array[String]): Unit = {
-        val arr = Array(30, 50, 70, 60, 10, 20)
-//        foreach(arr, (a: Int) => println(a))
-        foreach(arr, x => {
+        //        foreach(arr, (a: Int) => println(a))
+        /*foreach(arr, x => {
             println(x)
             println(x * x)
             println(x * x * x)
-            
-        })
+        })*/
+        
+        //        foreach(arr, println)
+        
+        
+        val arr = Array(3, 5, 70, 6, 10, 20)
+//        val arr1 = filter(arr, x => x > 20)
+//        val arr1 = filter(arr, x => x % 2 == 0)
+//        val arr1 = filter(arr, _ % 2 == 0)
+        val arr1 = filter(arr, x => x %3 == 0)
+        foreach(arr1, println)
+        
+    }
+    
+    /*
+    过滤操作:
+        只留下来满足  条件  的元素, 不满足的去掉.
+        关于条件: 应该是一个 Int => Boolean 值
+        最后返回的是过滤后的数组
+     */
+    def filter(arr: Array[Int], condition: Int => Boolean) = {
+        // for 推导
+        for (ele <- arr if condition(ele)) yield ele
     }
     
     /*
