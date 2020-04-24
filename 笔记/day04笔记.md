@@ -114,7 +114,7 @@ def foo2(f:() => Int) = {
 
 ## 3. 类和对象
 
-#### 定义类
+###定义类
 
 ```scala
 class User1
@@ -125,3 +125,100 @@ class User1
 - 数字    0
 - 布尔型  false
 - 引用型  null
+
+### 特征
+
+1. 类和java一样, 默认有空构造器, 但是一旦有定义构造器, 则不会再默认提供空构造器了
+
+2. 给类定义的所有的属性都是私有.
+
+3. 但是会给这些私有属性添加公共的`getter`或`setter`
+
+   ```scala
+   public class com.atguigu.scala1128.day04.obj.User2 {
+     private java.lang.String name;
+     private final int age;
+     public java.lang.String name();   // getter
+     public void name_$eq(java.lang.String);  // setter
+     public int age();
+     public com.atguigu.scala1128.day04.obj.User2(java.lang.String, int);
+   }
+   
+   ```
+
+4. 在访问属性的时候, 约定是访问公共的`getter`方法
+
+   ```
+   println(user.name)
+   其实是访问的
+   public java.lang.String name();
+   ```
+
+5. 在修改属性值的时候, 会默认访问`setter方法`
+
+   ```scala
+   user.name = "zs"
+   其实访问的是
+   public void name_$eq(java.lang.String)
+   ```
+
+6. 在主构造中, 如果没有`val/var`, 那么这个参数在有些情况(在类内部地方用到)下也会成为属性, 但是私有, 没有提供公共的getter和setter
+
+7. `scala`自动提供的`setter和getter` 不符合标准的`java bean` 规范
+
+   > `java bean`:
+   >
+   > `public String getName(){  }`
+   >
+   > `public void SetName(String name){  }`
+
+   由于`scala`的生态不完善, `scala`大量的使用专门为`java`准备的那些类库, 这些类库, 他们在底层一般要用到标准的`java`的`getter和setter`
+
+   所以, 要添加标准的`java`的`getter和setter`
+
+8. 使用注解添加标准`bean`
+
+   ```
+   class User2(@BeanProperty var name: String, @BeanProperty val age: Int, @BeanProperty sex: String)
+   ```
+
+   如果要用到`java`的类库, 最好加上.
+
+### 构造器重载
+
+`scala`也支持构造器的重载.
+
+整体分两种构造器
+
+1. 主构造器
+
+   紧跟着类名
+
+2. 辅助构造器
+
+   和柱构造构成了重载关系
+
+   功能相比比较弱
+
+   ```scala
+   // 定义一个无参辅助构造器
+   def this() = {
+   
+   // 注意: 首行必须是调用自己的主构造器
+   this("lisi")
+   }
+   
+   def this(age: Int) = {
+       this("lisi")
+       this.age = age
+   }
+   def this(a: Int) = {
+       this()
+   }
+   ```
+
+   注意: 
+
+   1. 只能后定义的调用先定义的
+   2. 辅助构造函数的参数, 仅仅是一个普通的参数, 不会成为类的属性
+

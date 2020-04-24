@@ -15,6 +15,8 @@ object Obj1 {
         u1.eat()
         
     }
+    
+    
 }
 
 class User1{
