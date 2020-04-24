@@ -23,6 +23,7 @@ object Closure {
         val ff2 = foo3()
         println(ff2())  //
         println(ff2())  //
+        
     }
     
     def foo3() = {
