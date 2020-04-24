@@ -13,5 +13,8 @@ object PackDemo4 {
         eat1()
         day04.pack.foo1()
         day04.pack.eat1()
+        println("aaa")
+        val a:Int = 10
+        val b: String = ""
     }
 }
