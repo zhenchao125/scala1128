@@ -27,6 +27,8 @@ object MethodFunction {
         println(r1)*/
         high1(abc _)
         
+        
+        
     }
     
     
