@@ -26,6 +26,9 @@ abstract class A{
 
 }
 class B extends A{
+    public B(){
+        super();
+    }
     public int a = 20;
     @Override
     public A foo(int b) throws RuntimeException {
