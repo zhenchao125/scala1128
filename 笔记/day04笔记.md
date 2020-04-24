@@ -112,7 +112,7 @@ def foo2(f:() => Int) = {
 
 `scala`的面向的理论和`java`完全一样, 具体实现方式不一样
 
-## 3. 类和对象
+## 4. 类和对象
 
 ###定义类
 
@@ -221,4 +221,117 @@ class User1
 
    1. 只能后定义的调用先定义的
    2. 辅助构造函数的参数, 仅仅是一个普通的参数, 不会成为类的属性
+
+## 5. 包
+
+包的概念和`java`的是一样的
+
+包的作用:
+
+1. 区别类名相同类
+2. 方便对类进行管理
+3. 控制访问范围
+
+### 5.1 包的声明
+
+1. 支持和`java`一样的声明方式(基本这种使用)
+
+   ```scala
+   package com.atguigu.scala1128.day04.pack
+   ```
+
+2. 支持多个`package`语句(很少碰到)
+
+   ```scala
+   package com.atguigu.scala1128.day04.pack
+   package a.b
+   ```
+
+   `com.atguigu.scala1128.day04.pack.a.b.PackDemo`
+
+3. 包语句(很少碰到)
+
+   ```scala
+   package c{  // c其实是子包
+       class A
+   }
+   ```
+
+### 5.2 包的导入
+
+1. 导入和`java`一样, 在文件最顶层导入, 整个文件的任何位置都可以使用(掌握)
+
+   ```
+   import java.util.HashMap
+   ```
+
+2. 在`scala`中其实在代码任何位置都可以导入. (掌握)
+
+   ```scala
+   def main(args: Array[String]): Unit = {
+       
+       import java.io.FileInputStream
+       // 只能在main函数中使用
+       val is = new FileInputStream("c:/users.json")
+   }
+   ```
+
+3. 导入类的时候, 防止和现有的冲突, 可以给类起别名
+
+   ```scala
+   import java.io.{FileInputStream => JFI}
+   ```
+
+4. 如何批量导入(掌握)
+
+   ```scala
+   import java.io._  // 导入java.io包下所有的类   (java是*)
+   ```
+
+5. 屏蔽某个类
+
+   ```scala
+   import java.io.{FileInputStream => _, _}  //屏蔽 FileInputStream 
+   ```
+
+6. `java`中有静态导入
+
+   >  只能导入静态成员.
+
+   `scala`
+
+   ```scala
+   import java.lang.Math._	
+   ```
+
+7. `scala`还支持导入对象的成员(掌握)
+
+   ```scala
+   val u = new User
+   // 把对象u的成员导入
+   import u._
+   foo()
+   eat()
+   ```
+
+### 5.3 公共方法的处理
+
+`java`中一般搞工具类, 在工具类中写静态方法. 因为`java`中所有的方法都需要依附于类或者对象
+
+`scala`中为了解决这个问题, 提供了一个**包对象**的, 将来在这个包内, 使用包对内的方法的时候, 就像使用自己定义的.
+
+```scala
+package com.atguigu.scala1128.day04
+
+package object pack {
+    def foo1() = {
+        println("foo...")
+    }
+    def eat1() = {
+        println("eat...")
+    }
+}
+```
+
+在`com.atguigu.scala1128.day04.pack`包下所有的类可以直接使用这些方法.
 
