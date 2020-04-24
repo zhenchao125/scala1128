@@ -24,5 +24,7 @@ object High2 {
         val p = println((_: Int))
         p(1000)
         
+        println()
+        
     }
 }
