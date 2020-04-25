@@ -11,7 +11,8 @@ object Human {
         /*println(makeHuman("黄"))
         println(makeHuman("棕"))
         println(makeHuman("棕"))*/
-        
+    
+        println(Human.getClass.getSimpleName)
     }
     
     val humans: mutable.Map[String, Human] = mutable.Map[String, Human](
