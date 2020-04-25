@@ -24,7 +24,6 @@ trait Usb {
         println(s"$name 开始初始化")
     }
     
-    
     // 抽象方法
     def insert(): String
     
