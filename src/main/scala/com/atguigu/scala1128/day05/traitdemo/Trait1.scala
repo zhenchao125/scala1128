@@ -23,13 +23,14 @@ trait Usb {
     def init() = {
         println(s"$name 开始初始化")
     }
-    
     // 抽象方法
     def insert(): String
     
     def work(): Unit
     
     def pop(): Unit
+    
+    def foo()
 }
 
 class HuaweiUSB extends Usb {
@@ -49,4 +50,6 @@ class HuaweiUSB extends Usb {
         println(s"$name 退出成功")
         
     }
+    
+    override def foo(): Unit = ???
 }
