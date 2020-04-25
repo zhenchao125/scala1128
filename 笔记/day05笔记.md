@@ -160,17 +160,72 @@ class User(val age: Int){
 
 `trait`可以多混入, 抽象类只能单继承
 
+## 混入多个`trait`
+
+```
+class A extends t1 with t2 with t3...
+```
+
+## 叠加冲突
+
+多个`trait`有相同实现好的方法的时,会产生冲突
+
+1. 解决方案1
+
+   在子类中把冲突的方法给覆写一下
+
+   ![](http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/1587798598.png)
+
+2. 做一个"菱形(钻石)"
+
+   ![](http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/1587798865.png)
+
+   冲突的方法最终使用的是最后叠加的那个!!!
+
+   - 初始化的是, 一个`trait`最多初始化一次
+   - 初始化的时候是从父开始, 从左
+   - `super.foo()`不是真正的找父类, 而是按照叠加的顺序向前找
+   - `super[T12].foo()` 明确指定这个`super`应该是哪个类
 
 
 
+## 特质继承类
 
+1. 方法1
 
+   ```scala
+   class A{
+       def foo() = {
+           println("A... foo")
+       }
+   }
+   
+   
+   trait B extends A{
+       def eat() = {
+           println("B ... eat")
+           foo()
+       }
+   }
+   // extends 要么是A要么A的子类
+   class C extends A with B
+   ```
 
+2. 使用自身类型(`selftype`)
 
+   ```scala
+   trait B{
+       // s就是A类型的对象
+       s: A =>
+       
+       def eat()= {
+           println("B ... eat")
+           s.foo()
+       }
+   }
+   ```
 
-
-
-
+   
 
 
 
