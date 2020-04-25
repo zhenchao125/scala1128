@@ -225,11 +225,72 @@ class A extends t1 with t2 with t3...
    }
    ```
 
+   ## 动态叠加
+
+   在`java`中所有的继承关系都应该在定义类是确定好.
+
+   `scala`支持特质的动态叠加. 在创建对象的时候, 可以临时只针对整个对象来叠加特质
+
+   ```scala
+   object Trait5 {
+       def main(args: Array[String]): Unit = {
+           val h = new H with F1
+           h.foo()
+       }
+   }
    
+   class H
+   
+   trait F1 {
+       def foo() = println("f1 foo...")
+   }
+   ```
 
+   以后真正用的时候, 就把`trait`当做一个普通的接口来用!!!
 
+# 5. 补充的一些值
 
+1. 类型的判断和墙转
 
+```scala
+object Extra1 {
+    def main(args: Array[String]): Unit = {
+        val a:A = new B
+        // java中判断类型:   a instanceof B
+        if (a.isInstanceOf[B]) {  // 判断a是否为B的对象
+            val b = a.asInstanceOf[B] // a转换B的类型
+            b.foo()
+        }
+    }
+}
+
+class A
+class B extends A{
+    def foo() = println("foo...")
+}
+```
+
+2. 枚举类
+
+   - 使用`java`的来定义
+
+   - `scala`自己模拟枚举类
+
+     有个类型, 他的对象是预先创建好的有限个对象.
+
+     > 密封类
+
+   - 使用`scala`提供父类来完成
+
+3. `scala`中的内部类
+
+   类型投影
+
+   ```scala
+   def foo(obj: Outer#Inner)
+   ```
+
+   
 
 
 
