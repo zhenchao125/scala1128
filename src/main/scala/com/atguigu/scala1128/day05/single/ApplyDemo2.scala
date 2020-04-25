@@ -21,9 +21,11 @@ class MyArray(val args: Int*){
 }
 
 object User {
+    var a = 10
     def apply(name: String, age: Int) = new User(name, age)
 }
 
 class User(val name: String, var age: Int){
-    override def toString: String = s"$name, $age"
+    var a = 100
+    override def toString: String = s"$name, $age, ${User.a}"
 }
