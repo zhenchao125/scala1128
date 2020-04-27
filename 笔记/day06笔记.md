@@ -305,3 +305,61 @@ var arr1 = Array(30, 50, 70, 60, 10, 20)
 arr1 :+= 100
 ```
 
+### 多维数组
+
+和`java`完全一样, 底层就是`java`的多维数组
+
+本质都是假的, 都是用一维数组模拟出来!
+
+## 3.2 `List`
+
+### 不可变`List`
+
+```scala
+// 1. 得到List集合
+val list1 = List(10, 20, 30)
+//        val list2: List[Int] = list1 :+ 100
+val list2: List[Int] = 100 +: list1
+```
+
+```scala
+// 专门用于不可变List的头部增加元素的运算符
+val list2 = 100 :: list1
+// val list3 = list1 ++ list2
+val list3: List[Int] = list1 ::: list2  // list2.:::(lit1)
+```
+
+```scala
+val list: List[Int] = 10 :: 20 :: 30 :: Nil  // List(10,20,30,40)
+```
+
+`::` 向`List`的头部添加元素(List专用)
+
+`:::` 把两个`List`的元素合并到以前(List专用)
+
+### 可变`List`
+
+`ListBuffer`
+
+## 3.3 元组(`tupple`)
+
+为什么需要元组?
+
+```scala
+def foo() = ... 
+```
+
+专门用来封装那些数据**类型不同**的数据在一起!!!
+
+22是上限
+
+### 创建元组
+
+```scala
+val t2 = Tuple2(10, "name")
+val t2  = ("a", 10)  // 等价于 Tuple2("a", 10)
+```
+
+元组不可变, 不能修改
+
+元组不能直接遍历, 其实没有这样的需求
