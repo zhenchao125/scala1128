@@ -1,5 +1,7 @@
 package com.atguigu.scala1128.day06.implicitdemo
 
+import scala.collection.immutable.StringOps
+
 /**
  * Author atguigu
  * Date 2020/4/27 9:08
