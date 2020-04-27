@@ -7,8 +7,10 @@ package com.atguigu.scala1128.day06.arr
 object ArrayMore {
     def main(args: Array[String]): Unit = {
         var arr1 = Array(30, 50, 70, 60, 10, 20)
+        println(arr1)
         // 等价于 arr1 = arr1 :+= 100
         arr1 :+= 100
+        println(arr1)
         println(arr1.mkString(", "))
     }
 }
