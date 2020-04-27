@@ -12,7 +12,7 @@ object ArrayBuffer1 {
         val buffer = ArrayBuffer(10, 20, 30, 40, 10.3)
         /*val buffer2 = 200 +: buffer :+ 100
         println(buffer)*/
-        buffer += 100
+        buffer += 100  // 等价于 buffer.append(100)
         200 +=: buffer
         buffer.append(1000)  // java式的写法
         buffer.prepend(2000)
