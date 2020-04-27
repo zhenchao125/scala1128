@@ -5,6 +5,12 @@ import java.io.File
 import scala.io.Source
 
 object ImplicitDemo4 {
+    implicit class RichFile(file: File) {
+        
+        def readContent: String = {
+            Source.fromFile(file, "utf-8").mkString
+        }
+    }
     def main(args: Array[String]): Unit = {
         
         // File => RichFile
@@ -12,12 +18,7 @@ object ImplicitDemo4 {
         println(content)
         
     }
-    implicit class RichFile(file: File) {
-        
-        def readContent: String = {
-            Source.fromFile(file, "utf-8").mkString
-        }
-    }
+    
     
 }
 
