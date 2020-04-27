@@ -99,3 +99,68 @@ class RichFile(file: File) {
 }
 ```
 
+### 总结
+
+1. 什么时候会用到隐式转换
+
+   - 把 `A`类型的值, 赋值给`B`类型的时候,` A`和`B`没有任何的关系, 这个时候会去找一个隐式转换(`A => B`),如果还有有, 则编译成功,将来自动把 A转成B之后, 赋值给B
+
+     ```scala
+     val a: A = new A
+     val b:B = a   // 会找隐式转换
+     ```
+
+   - 在调用一个对象`a`的方法(`foo`)的时候, 如果这个对象`a`没有这样的方法, 那么会找一个隐式转换, 这个隐式接受一个 `A`类型的对象, 返回一个新的新的对象, 新的对象中有`foo`, 就成功了
+
+     ```scala
+     implicit def a(file:File) = new RichFile(file)
+     val content = new File("..").readContent
+     //RichFile中有一个readContent方法
+     ```
+
+2. 隐式转换需要做什么
+
+   - 写一个隐式转换函数
+
+     - 函数名没有限制, 随意
+     - 参数一定是你原来的类型
+     - 返回值一定是你新定义的类型
+     - `implicit def a(file:File) = new RichFile(file)`
+
+   - 写一个自定义类型(能够完成以前的类没有的功能)
+
+     - 自定义一个类: 主构造接受已有的类型
+
+     - 在定义一个你需要的方法
+
+       ```scala
+       class RichFile(file: File){
+       	def readContent = {}
+       }
+       ```
+
+## 2.2 隐式类
+
+用`implicit`修饰的类就是隐式类
+
+- 好处: 省略去写隐式转换函数
+
+- 隐式类可以看成是隐式转换函数的升级版!!! 
+
+- 隐式类不能是顶级类, 只能是内部类.
+
+  (`implicit`不能修饰顶级元素)
+
+```scala
+implicit class RichFile(file: File) {
+    // 这个方法要真正的去封装读 文件 内容的代码
+    def readContent: String = {
+        // Array(1,2,3,4)  => arr.mkString   "1234"
+        // Array(1,2,3,4)  => arr.mkString(",")   "1,2,3,4"
+        Source.fromFile(file, "utf-8").mkString
+    }
+}
+```
+
+
+
