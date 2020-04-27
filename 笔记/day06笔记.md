@@ -267,3 +267,41 @@ def foo(implicit a: Int) = {
 
 ### 可变数组
 
+`ArrayBuffer`  可变数组.
+
+创建可变数组
+
+```scala
+// 创建可变数组
+val buffer = ArrayBuffer(10, 20, 30, 40, 10.3)
+// 创建一个空的ArrayBuffer
+new ArrayBuffer[Int]()
+// 创建一个空的ArrayBuffer
+ArrayBuffer[Int]()
+```
+
+`+=` 在可变数组的尾部增加元素(没有产生新的集合)
+
+`+=:` 在可变数组的头部增加元素(没有删除新的集合)
+
+```scala
+buffer.append(1000)  // java式的写法
+buffer.prepend(2000)
+buffer.insert(0, 200, 3000, 4000)
+```
+
+```
+buffer1 ++= buffer2  // 把buffer2的内容之家到buffer1的内部  buffer1发生变化
+buffer1 ++=: buffer2   // buffer1不变, buffer2发生了变化
+```
+
+### 扩展
+
+其实定长数组也可以使用`:+= `运算符
+
+```scala
+var arr1 = Array(30, 50, 70, 60, 10, 20)
+// 等价于 arr1 = arr1 :+= 100
+arr1 :+= 100
+```
+
