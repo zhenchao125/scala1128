@@ -258,9 +258,23 @@ set.toBuffer
    println(wordCount)
    ```
 
-   
+7. `reduce`
 
+   化简. 聚合
 
+   最终的结果一定只有一个!!!
+
+   ![](http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/1588062736.png)
+
+8. `foldLeft`
+
+   左折叠.
+
+   最终结果的类型可以由`zero`来决定
+
+   > `reduce`最终结果的类型, 和元素的类型是一致
+
+   ![](http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/1588063871.png)
 
 
 
