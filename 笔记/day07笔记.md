@@ -192,7 +192,73 @@ set.toBuffer
 
    进行数据结构的调整!!!
 
+   > `foreach, map`
+   >
+   > 1. 共同点:
+   >
+   >    都会遍历集合中的元素
+   >
+   > 2. 不同点:
+   >
+   >    `foreach`仅仅只有遍历
+   >
+   >    `map`会有返回值. 
 
+3. `filter`
+
+   过滤. 
+
+   1进1出或0出
+
+   > 满足要求的留下来, 不可满足的去掉
+
+4. `flatten`
+
+   偏平
+
+   如果一个集合中存储的是集合, 那么才可以使用`flatten`
+
+5. `flatMap`
+
+   他是 `map和flatten`的合体.  
+
+   > 总结
+   >
+   > 1. `map` 一进一出
+   > 2. `filter` 一进0出或1出
+   > 3. `flatMap` 一进多(0, 1 >1)出
+
+6. WordCount
+
+   // 原始写法1:
+
+   ```scala
+   val list = List("hello", "world", "hello", "atguigu", "hello", "atguigu")
+   // 统计一下每个单词出现的次数  wordCount
+   /*
+           分析:
+               Map(hello->3, world->1, atguigu->2)
+            */
+   var result = Map[String, Int]()
+   list.foreach(x => {
+       // x: hello    result找到hello的个数, 把个数+1
+       result += x -> (result.getOrElse(x, 0) + 1)
+   })
+   println(result)
+   ```
+
+   // 写法2
+
+   ```scala
+   val list = List("hello", "world", "hello", "atguigu", "hello", "atguigu")
+   // 如果匿名函数式原封不动的返回, 则不能化简
+   val wordCount = list
+       .groupBy(x => x)
+       .map(kv => (kv._1, kv._2.size))
+   println(wordCount)
+   ```
+
+   
 
 
 
