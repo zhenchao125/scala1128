@@ -30,14 +30,16 @@ object SubCollections {
         //        println(list1.intersect(list2))
         //        （10）差集
         //        println(list1.diff(list2))
-        val list1 = List(30, 50, 70, 60, "abc")
-        val list2 = List("30", "50", "7", "6", "10", "2", "abc")
         //        （11）拉链
         //        val list3: List[(Int, Int)] = list1.zip(list2)  // 多出会忽略
         //  val list3 = list1.zipAll(list2, -1, "fff")  // 配置默认值
-        val list3= list1.zipWithIndex  // 元素和索引进行拉链
-        println(list3)
+        //        val list3= list1.zipWithIndex  // 元素和索引进行拉链
+        //        println(list3)
         //        （12）滑窗
+        val list1 = List(30, 50, 70, 60, "abc")
+        val list2 = List("30", "50", "7", "6", "10", "2", "abc")
+        val it: Iterator[List[String]] = list2.sliding(3, 1)
+        println(it.toList)
         
     }
 }
