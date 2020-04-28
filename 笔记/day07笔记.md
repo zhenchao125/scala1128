@@ -167,6 +167,15 @@ set.toBuffer
 
 # 三. `Map`集合
 
+`Map` 分可变和不可变.
+
+存储的是键值对.  键值对中的**键不能重复**
+
+1. 在`scala`中, 是使用元组来表示键值对!!!
+2. 遍历出来的就是元组
+3. 获取元素最好使用`map.getOrElse(key, defaultVlaue)`
+4. 可变`Map`多了一个``map.getOrElseUpdate(key, defaultVlaue)``
+
 
 
 
