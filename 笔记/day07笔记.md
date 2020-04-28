@@ -176,6 +176,22 @@ set.toBuffer
 3. 获取元素最好使用`map.getOrElse(key, defaultVlaue)`
 4. 可变`Map`多了一个``map.getOrElseUpdate(key, defaultVlaue)``
 
+# 四 集合高级操作
+
+集合提供的一些高阶函数, 高阶算子
+
+1. `foreach`
+
+   遍历.  
+
+2. `map`
+
+   一进一出
+
+   原来有`n`个元素, 那么经过`map`之后,一定也是`n`个元素
+
+   进行数据结构的调整!!!
+
 
 
 
