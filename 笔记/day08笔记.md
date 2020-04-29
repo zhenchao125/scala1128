@@ -40,8 +40,10 @@ scanRight
 提供了3个算子来给我们排序:
 
 1. `sorted`
-2. `sortBy`
+2. `sortBy`(必须掌握)
 3. `sortWith`
+
+另外掌握一个: `Ordering`的使用
 
 注意: 不管是对可变还是不可变, 都不会修改原集合, 都是返回一个新的排好序.
 
@@ -96,3 +98,23 @@ scanRight
 ## `sortBy`
 
 就用这个`sortBy`, 他可以解决`99.99%`的排序
+
+## `sortWith`
+
+```scala
+val list2 = list1.sortWith(_ > _)
+```
+
+```
+队列:
+    FIFO 先进先出
+    入队  enqueue
+    出队  dequeue
+栈:
+    FILO  先进后出
+    push 入栈
+    pop 出栈
+```
+
+
+
