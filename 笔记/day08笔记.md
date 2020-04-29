@@ -116,5 +116,35 @@ val list2 = list1.sortWith(_ > _)
     pop 出栈
 ```
 
+# 四. 集合总结
+
+## 常用的集合
+
+`Array, List, Set, Map` `Option`   必须掌握
+
+## 集合的基本操作
+
+遍历, 取值,` head, tail`....
+
+## 高级操作
+
+```
+foreach
+map     进行数据结构调整
+flatMap   匿名函数的返回值必须是集合
+filter	  过滤. ETL
+reduce    聚合(原理)
+foldLeft  左折叠(聚合), 多了一个零值, 决定了最终的结果类型
+groupBy   分组. 之后, 一般需要map进行调整
+sortBy	  排序. 传排序的指标. 
+		   知道如何定义  Ordering(比较元素大小的)
+```
+
+# 五 模式匹配
+
+是对`java`中的`switch`的升级, 功能远远大于`switch`
+
+1. 模式匹配的时候, 如果匹配不到, 则会抛异常
+
 
 
