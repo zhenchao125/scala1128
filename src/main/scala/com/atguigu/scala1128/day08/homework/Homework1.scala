@@ -9,7 +9,31 @@ object Homework1 {
         //        work4()
         //        work5()
         //        println(work6("Helloee"))
-        work7()
+        //        work7()
+        work8()
+    }
+    
+    def work8(): Unit = {
+        // 不使用scala自带的reverse, 自己实现一个反转  "abc"  => "cba" 使用 foldLeft 或递归完成
+        /*def reverse(s: String) ={
+            s.foldLeft("")((x, y) => y + x )
+        }*/
+        
+        // 对s进行反转  "abc"    "bc"反转之后 + a
+        /*def reverse(s: String): String = {
+            if (s.isEmpty) ""
+            else reverse(s.tail) + s.head
+        }*/
+        
+        def reverse(list: List[Int]): List[Int] = {
+//            list.foldLeft(List[Int]())((list, ele) => ele :: list)
+            
+            if(list == Nil) Nil
+            else reverse(list.tail) :+ list.head
+        }
+        
+        //        println(reverse("abcdef"))
+        println(reverse(List(10, 20, 30, 40)))
     }
     
     def work7(): Unit = {
@@ -29,7 +53,6 @@ object Homework1 {
             //            list1./:(start)(_ + _ + sep).dropRight(sep.length) + end
             
             //            val temp = list1./:(start)(_ + _ + sep)
-            
             val temp = (start /: list1) (_ + _ + sep)
             temp.dropRight(sep.length) + end
         }
