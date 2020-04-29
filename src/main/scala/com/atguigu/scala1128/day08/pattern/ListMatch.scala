@@ -7,7 +7,8 @@ package com.atguigu.scala1128.day08.pattern
 object ListMatch {
     def main(args: Array[String]): Unit = {
         //List匹配 内容
-        val list1 = List(30, 50, 70)
+//        val list1 = List(30, 50, 70)
+        val list1 = 30::50::70::Nil
         list1 match {
             /*case List(a, b, c) =>
                 println(a)*/
