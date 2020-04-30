@@ -123,5 +123,126 @@ println(list2)
 
 用一对大括号括起来的`case`语句, 就是一个偏函数
 
+   ```scala
+{ case ...=>}
+   ```
+
+# 三 异常处理
+
+`java`中: 
+
+都是继承自`Exception`
+
+特点: 代码会变的比较健壮
+
+- 运行时异常
+
+  只有在运行的时候才有可能产生, 在源码中,可以处理, 也可以不处理
+
+- 编译时异常(受检异常)
+
+  在源码的时候,必须处理. `IO, 网络`
+
+  
+
+在`scala`中,  所有的异常, 都可以处理, 也可以不处理.
+
+用法:
+
+1. 处理
+
+   - 使用`try catch finally`
+
+   - 抛出异常类型(`java: throws` `scala: 注解`)
+
+     ```scala
+     @throws(classOf[RuntimeException])
+     @throws(classOf[IllegalArgumentException])
+     ```
+
+2. 主动抛出
+
+   ```scala
+   throw new IllegalArgumentException
+   ```
+
    
+
+   scalac: 编译scala源码
+
+   scala: 进行运行
+
+   ----
+
+    scala 源码.scala 
+
+   当脚本用来(内部会先编译, 再运行)
+
+# 四. 泛型
+
+ 泛型:  类型的参数化
+
+```
+int a = 10
+```
+
+- 泛型类
+  - 泛型定义在类上, 然后这个泛型在类的内部的任何位置都可以使用
+- 泛型方法(函数)
+  - 泛型定义在方法上, 泛型只能在这个方法使用.
+
+> `scala`泛型为啥是`[ ]`
+>
+> `scala`原生支持`xml`, 标签都是用`<user>`, 尖括号用带这里
+>
+> 就用`[ ]`
+>
+> 集合通过下标访问, `( )`
+
+## 泛型的上限界定和下限界定
+
+```scala
+[T <: Ordered[T]]  // 上限
+```
+
+```scala
+[T >: Pet]  // 下限. 推导的时候,不能和上限一样
+```
+
+## 三变
+
+```scala
+class MyList[T]
+
+class Father
+class Son extends Father
+```
+
+不变
+
+​	`MyList[Son] 和 MyList[Father] 没有任何的"父子关系"`
+
+```scala
+错误:  val fs: MyList[Father] = new MyList[Son] 
+默认情况下, 所有泛型都是不变的!!!
+class MyList[T]
+```
+
+协变
+
+```scala
+val fs: MyList[Father] = new MyList[Son]  // 正确的
+
+class MyList[+T]
+```
+
+逆变
+
+```scala
+val fs: MyList[Son] = new MyList[Father]  // 正确的
+
+class MyList[-T]
+```
+
+
 
