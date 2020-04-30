@@ -14,5 +14,6 @@ object GenericDemo5 {
         val map: Map[A, A] = Map[A, B]()
     }
 }
+
 class A
 class B extends A

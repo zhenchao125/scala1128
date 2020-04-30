@@ -193,7 +193,7 @@ int a = 10
 
 > `scala`泛型为啥是`[ ]`
 >
-> `scala`原生支持`xml`, 标签都是用`<user>`, 尖括号用带这里
+> `scala`原生支持`xml`, 标签都是用`<user>`, 尖括号用这里
 >
 > 就用`[ ]`
 >
@@ -244,5 +244,20 @@ val fs: MyList[Son] = new MyList[Father]  // 正确的
 class MyList[-T]
 ```
 
+## 上下文界定(泛型)
 
+```scala
+def max[T](x: T,y:T)(implicit ord: Ordering[T]) = {
+    if(ord.gt(x, y)) x
+    else y
+}
+```
+
+```scala
+[T:Ordering]
+这就是泛型上下文.
+表示: 一定有一个隐式值  Ordering[T] 类型的隐式值
+```
+
+上下文泛型的本质其实是对隐式参数和隐式值的封装!!!
 
