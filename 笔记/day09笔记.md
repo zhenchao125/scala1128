@@ -261,3 +261,5 @@ def max[T](x: T,y:T)(implicit ord: Ordering[T]) = {
 
 上下文泛型的本质其实是对隐式参数和隐式值的封装!!!
 
+## 视图界定
+
