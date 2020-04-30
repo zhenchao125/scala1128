@@ -63,7 +63,7 @@
      unapply(...): Option[Int] = ...
      ```
 
-   # 二 样例类
+# 二 样例类
 
    对象匹配, 必须要手动在伴生对象中去实现一个`def unapply`方法.
 
@@ -96,7 +96,32 @@
        - 作为进程间通信的通讯协议
    ```
 
-   
+   ## 在变量声明的时候使用模式匹配
+
+   ## 偏函数
+
+  ```scala
+val list = List(10, "a", false, 20, 30)
+// List(20, 40, 60)
+// filter + map
+val f: PartialFunction[Any, Double] =  new PartialFunction[Any, Double] {
+    // 如果这个函数返回true, 则会对这个x进行处理(交给apply进行处理)
+    override def isDefinedAt(x: Any): Boolean = x match {
+        case _: Int => true
+        case _ => false
+    }
+
+    override def apply(v1: Any): Double = v1 match {
+        case a:Int => a * 2
+    }
+}
+val list2 =  list.collect(f)  // 等价于了 filter + map
+println(list2)
+  ```
+
+定义方式2:
+
+用一对大括号括起来的`case`语句, 就是一个偏函数
 
    
 
