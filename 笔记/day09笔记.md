@@ -63,7 +63,40 @@
      unapply(...): Option[Int] = ...
      ```
 
-     
+   # 二 样例类
+
+   对象匹配, 必须要手动在伴生对象中去实现一个`def unapply`方法.
+
+   样例他主要就是为模式匹配而生.
+
+   `case class`
+
+   其实就是`scala`, 替我们实现很多方法, 这些方法大部分可以直接使用.
+
+   ```scala
+   apply
+   unapply
+   hashCode
+   equals
+   ...
+   ```
+
+   ```scala
+   case class User(age: Int, name:String)
+   
+   1. 写在主构造中的属性默认都是val. 如果有需要可以改成var的
+   2. 默认实现了很多方法
+   	apply
+       unapply
+       hashCode
+       equals
+   3. 使用场景
+   	- 模式匹配
+   	- 替代 java bean
+       - 作为进程间通信的通讯协议
+   ```
+
+   
 
    
 
