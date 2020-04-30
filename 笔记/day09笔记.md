@@ -259,7 +259,22 @@ def max[T](x: T,y:T)(implicit ord: Ordering[T]) = {
 表示: 一定有一个隐式值  Ordering[T] 类型的隐式值
 ```
 
-上下文泛型的本质其实是对隐式参数和隐式值的封装!!!
+上下文泛型的本质其实是对***隐式参数和隐式值***的封装!!!
 
 ## 视图界定
+
+视图界定是对象***隐式转换函数***的封装!!!
+
+```scala
+def max[T <% Ordered[T]](x: T, y: T) :T = {
+    if(x > y) x
+    else y
+}
+
+
+/*def max[T](x: T, y: T)(implicit f:  T => Ordered[T]) :T = {
+        if(x > y) x
+        else y
+    }*/
+```
 
