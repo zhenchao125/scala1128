@@ -1,8 +1,5 @@
 package com.atguigu.scala1128.day09.extra
 
-import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
-
 /**
  * Author atguigu
  * Date 2020/4/30 15:29
@@ -27,6 +24,29 @@ object Extra1 {
         user(1) = 200 // user.update(1, 200)
         println(user(0))*/
         
+        /* val f = foo _
+         f()
+         
+         val a_+ = 10*/
+        
+        //        val opt:Option[Int] = Some(10)
+        val opt: Option[Int] = None
+        opt match {
+            case Some(a) =>
+                println(a)
+            case None =>
+                println("None")
+        }
+        
+        
+    }
+    
+    def foo1(list: List[_]) = {
+    
+    }
+    
+    def foo = {
+        println("foo...")
     }
     
     implicit class RichInt(n: Int) {
@@ -34,6 +54,13 @@ object Extra1 {
         // def ! = 10
         def unary_! : Int = 10 - n
     }
+    
+    
+}
+
+trait A {
+    _: Exception =>
+    this.printStackTrace()
     
 }
 
@@ -58,8 +85,41 @@ object Extra1 {
         user(0) = 100 // user.update(0, 100)
         
 5. _ 总结
- 
- 
+    https://stackoverflow.com/questions/8000903/what-are-all-the-uses-of-an-underscore-in-scala
+    1. 导包, 通配符 _
+            import java.util.Math._
+    2. 屏蔽类
+            import java.util.{HashMap => _, _}
+    3. 给可变参数传值的时候, 展开
+            foo(arr:_*)
+    4. 元组元素访问
+            t._1
+    5. 函数参数的占位符
+            reduce(_ + _)
+    6. 方法转函数
+        val f = foo _
+        
+    7. 给属性设置默认值
+            class A{
+                var a: Int = _  // 给a赋值默认的0
+            }
+    8. 模式匹配的通配符
+        case _ =>   // 匹配所有
+    
+    9. 模式匹配集合
+        Array(a, b, rest@_*)
+        
+    10. 部分应用函数
+        math.pow(_, 2)
+        
+    11. 在定义标识符的时候, 把字符和运算符隔开
+            val a_+ = 10
+            a+ // 错误
+    12. List[_]
+            泛型通配符
+    
+    13. 自身类型
+        _: Exception =>
 
 
  */
